@@ -1,0 +1,27 @@
+{
+  "name": "horus",
+  "version": "0.0.1",
+  "description": "Command runs application -> if user has not been set up, prompts for login (or API key?) -> loads home feed",
+  "main": "app.js",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "request": "^2.88.0",
+    "twit": "^2.2.11",
+    "vorpal": "^1.12.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "linter": "standard && node app.js"
+  },
+  "author": "Jeff Nabors",
+  "license": "GPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/rkdnc/horus.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rkdnc/horus/issues"
+  },
+  "homepage": "https://github.com/rkdnc/horus#readme"
+}
