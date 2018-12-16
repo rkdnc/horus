@@ -11,7 +11,7 @@ clearConsole
 vorpal.command('init', 'Initialize Horus for Twitter API Keys')
     .action(function(args, callback) {
         const self = this
-        self.log(help.underline('In order to access Twitter, you will need to visit https://developer.twitter.com/en/apps to generate your API Keys.'))
+        self.log(help.underline('In order to utilize Horus, you will need to visit https://developer.twitter.com/en/apps to generate your API Keys.'))
         self.prompt([
             {
             type:'input',
@@ -46,12 +46,11 @@ vorpal.command('init', 'Initialize Horus for Twitter API Keys')
     })
 
 
-// Allow optional arg for user to set own count?
-vorpal.command('home ', 'Read your personal timeline.')
+// TODO: Allow optional arg for user to set own count
+vorpal.command('home', 'Read your personal timeline (The most recent 20 tweets).')
     .action(function(args, callback){
         clearConsole
         twitter.getTweets()
-        vorpal.delimiter(help('H:'))
         callback()
     })
 
