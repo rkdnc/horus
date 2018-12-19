@@ -1,7 +1,7 @@
 {
   "name": "horus",
   "version": "0.0.1",
-  "bin":{
+  "bin": {
     "horus": "./bin/index.js"
   },
   "preferGlobal": true,
