@@ -59,27 +59,33 @@ horus
 // Twitter timeline
 horus
   .command('timeline [num]')
-  .alias('-t')
   .description('Read your home timeline. Optional argument allowed for more or less tweets to be shown, defaulting to 10.')
   .action( tweets => {
-      if (typeof tweets === 'number') {
-      twitter.getTweets(tweets)
-      } else {
-          log(logError('You did not enter a number of tweets to read.'))
-      }
+    switch(typeof tweets) {
+        case 'number':
+            twitter.getTweets(tweets)
+            break
+        case 'string':
+            if ( tweets.length > 0 ) {
+                log(logError('You did not enter a number of tweets to read.'))
+            }
+            break
+        default: 
+            twitter.getTweets(10)
+    }
   })
 
 horus
   .command('post <text>')
-  .alias('-p')
   .description('Post a tweet.')
   .action(text => {
       if(text.length > 280) {
           log(logError('Your tweet is too long. Try to keep it under 280 characters!'))
       } else {
-          // Post tweet function here
+          twitter.postTweet(text)
       }
   })
+
 
 // TODO: Command for liking / Re-Tweeting tweets
 
