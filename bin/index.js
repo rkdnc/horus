@@ -20,7 +20,6 @@ if ( fs.existsSync(`${__dirname}/../.env`) === false ) {
 
 horus
   .command('setup')
-  .alias('-s')
   .description('Set up Twitter API keys for Horus to run.')
   .action(() => {
     inquirer.prompt([
@@ -86,8 +85,45 @@ horus
       }
   })
 
+horus
+  .command('follow <username>')
+  .description('Follows the specific user.')
+  .action(() => log('Testing'))
 
-// TODO: Command for liking / Re-Tweeting tweets
+horus
+  .command('unfollow <username>')
+  .description('Unfollows the specific user.')
+  .action(() => log('Testing'))
+
+horus
+  .command('d <username>')
+  .description('Direct message a user')
+  .action(() => log('Testing'))
+
+horus
+  .command('rt <username>')
+  .description('Retweets that username\'s last tweet.')
+  .action(() => log('Testing'))
+
+horus
+  .command('whois <username>')
+  .description('Returns any public information about that user.')
+  .action(() => log('Testing'))
+
+horus
+  .command('like <username>')
+  .description('Likes that user\'s last tweet.')
+  .action(() => log('Testing'))
+
+horus
+  .command('stats <username>')
+  .description('Returns that user\'s bio, number of followers and number of users they are following.')
+  .action(() => log('Testing'))
+
+horus
+  .command('search')
+  .description('Searches for a query')
+  .action(() => log('Testing'))
 
 horus.parse(process.argv)
 

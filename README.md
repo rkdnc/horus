@@ -1,4 +1,4 @@
-Horus is an easy-to-use Twitter client in the terminal, built in Node.js with Vorpal.
+Horus is an easy-to-use Twitter client in the terminal, built in Node.js with Commander. Inspired by [t by sferik](https://github.com/sferik/t)
 
 
 ## How to set up
