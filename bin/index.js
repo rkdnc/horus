@@ -88,17 +88,23 @@ horus
 horus
   .command('follow <username>')
   .description('Follows the specific user.')
-  .action(() => log('Testing'))
+  .action( username => {
+    twitter.followUser(username)
+  })
 
 horus
   .command('unfollow <username>')
   .description('Unfollows the specific user.')
-  .action(() => log('Testing'))
+  .action(username => {
+    twitter.unfollowUser(username)
+  })
 
 horus
-  .command('d <username>')
+  .command('d <username> <message>')
   .description('Direct message a user')
-  .action(() => log('Testing'))
+  .action((username, message) => {
+    twitter.directMessage(username, message)
+  })
 
 horus
   .command('rt <username>')
@@ -124,6 +130,13 @@ horus
   .command('search')
   .description('Searches for a query')
   .action(() => log('Testing'))
+
+horus
+  .command('test <user>')
+  .description('stuff')
+  .action(user => {
+    twitter.directMessage(user)
+  })
 
 horus.parse(process.argv)
 
