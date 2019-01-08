@@ -113,14 +113,11 @@ horus
   })
 
 horus
-  .command('whois <username>')
-  .description('Returns any public information about that user.')
-  .action(() => log('Testing'))
-
-horus
   .command('like <username>')
   .description('Likes that user\'s last tweet.')
-  .action(() => log('Testing'))
+  .action(username => {
+    twitter.likeTweet(username)
+  })
 
 horus
   .command('stats <username>')
