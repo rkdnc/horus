@@ -9,7 +9,6 @@ const twitter = require('../lib/twitter')
 
 
 // Helpers
-const clearConsole = process.stdout.write('\033c') // clears console to run program
 const help = chalk.yellow
 const logError = chalk.red.underline
 const log = console.log
@@ -109,7 +108,9 @@ horus
 horus
   .command('rt <username>')
   .description('Retweets that username\'s last tweet.')
-  .action(() => log('Testing'))
+  .action((username) => {
+    twitter.retweet(username)
+  })
 
 horus
   .command('whois <username>')
