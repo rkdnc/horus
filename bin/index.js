@@ -131,12 +131,6 @@ horus
   .description('Searches for a query')
   .action(() => log('Testing'))
 
-horus
-  .command('test <user>')
-  .description('stuff')
-  .action(user => {
-    twitter.directMessage(user)
-  })
 
 horus.parse(process.argv)
 
