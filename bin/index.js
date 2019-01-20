@@ -54,7 +54,6 @@ horus
     })
   })
 
-// Twitter timeline
 horus
   .command('timeline [num]')
   .description('Read your home timeline. Optional argument allowed for more or less tweets to be shown, defaulting to 10.')
@@ -122,15 +121,16 @@ horus
 horus
   .command('stats <username>')
   .description('Returns that user\'s bio, number of followers and number of users they are following.')
-  .action(() => log('Testing'))
+  .action(username => {
+    twitter.stats(username)
+  })
 
 horus
-  .command('search')
+  .command('search <query> [count]')
   .description('Searches for a query')
-  .action(() => log('Testing'))
+  .action((query, count) => {
+    twitter.search(query, count)
+  })
 
 
 horus.parse(process.argv)
-
-// TODO: Allow optional arg for user to set own count
-// Command for tweets
