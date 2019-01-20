@@ -14,7 +14,7 @@ const logError = chalk.red.underline
 const log = console.log
 
 if ( fs.existsSync(`${__dirname}/../.env`) === false ) {
-  log(chalk.red.bold('Horus is not properly configured. Please run the \'init\' command.\n'))
+  log(chalk.red.bold('Horus is not properly configured. Please run the \'setup\' command.\n'))
 }
 
 horus
