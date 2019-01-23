@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
+
 const chalk = require('chalk')
 const fs = require('fs')
+
 const horus = require('commander')
 const inquirer = require('inquirer')
 require('dotenv').config()
@@ -13,9 +15,7 @@ const help = chalk.yellow
 const logError = chalk.red.underline
 const log = console.log
 
-if ( fs.existsSync(`${__dirname}/../.env`) === false ) {
-  log(chalk.red.bold('Horus is not properly configured. Please run the \'setup\' command.\n'))
-}
+
 
 horus
   .command('setup')
@@ -46,8 +46,14 @@ horus
         default:'',
         message: help('What is your Access Token Secret? ')
     }]).then(result => {
-        let keys = `CONSUMER_KEY=${result.consumer_key}\nCONSUMER_SECRET=${result.consumer_secret}\nACCESS_TOKEN_KEY=${result.access_token_key}\nACCESS_TOKEN_SECRET=${result.access_token_secret}`
-        fs.writeFile(`${__dirname}/../.env`, keys, err => {
+        let keys = {
+         consumer_key: result.consumer_key,
+          consumer_secret: result.consumer_secret,
+          access_token: result.access_token_key,
+          access_token_secret: result.access_token_secret
+        }
+        let data = JSON.stringify(keys)
+        fs.writeFile(`${__dirname}/../config.json`, data, err => {
             if (err) throw err
         })
         log(help('Setup is complete. You are now able to access Twitter.'))

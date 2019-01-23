@@ -1,6 +1,6 @@
 {
-  "name": "horus",
-  "version": "0.1.0",
+  "name": "horus-twitter",
+  "version": "0.1.1",
   "bin": {
     "horus": "./bin/index.js"
   },
